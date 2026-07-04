@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>%VITE_SYSTEM_NAME%</title>
+  <script>
+    (function () {
+      var m = localStorage.getItem('theme-mode') || 'light';
+      document.documentElement.setAttribute('data-theme', m);
+      var sb = {
+        graphite: ['#111827','#1f2937','#1f2937','#1f2937','#9ca3af','#f9fafb'],
+        midnight: ['#0f172a','#1e293b','#1e293b','#1e293b','#94a3b8','#f1f5f9'],
+        slate:    ['#1e293b','#334155','#334155','#334155','#94a3b8','#f1f5f9'],
+        forest:   ['#14532d','#166534','#166534','#166534','#86efac','#f0fdf4'],
+        light:    ['#f9fafb','#f3f4f6','#f3f4f6','#e5e7eb','#6b7280','#111827'],
+      };
+      var sk = localStorage.getItem('theme-sidebar') || 'graphite';
+      var c = sb[sk] || sb.graphite;
+      var r = document.documentElement.style;
+      var keys = ['--sidebar-bg','--sidebar-hover','--sidebar-active','--sidebar-border','--sidebar-text','--sidebar-text-active'];
+      keys.forEach(function(k, i) { r.setProperty(k, c[i]); });
+    })();
+  </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
