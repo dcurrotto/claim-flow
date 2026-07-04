@@ -1,0 +1,32 @@
+
+version = 0.1
+
+[qa.deploy.parameters]
+stack_name = "claim-flow-qa"
+resolve_s3 = true
+capabilities = "CAPABILITY_IAM"
+confirm_changeset = true
+fail_on_empty_changeset = false
+parameter_overrides = "EnvironmentName=\"qa\""
+s3_prefix = "claim-flow-qa"
+profile = "claim-flow-qa"
+disable_rollback = true
+image_repositories = []
+
+
+[qa.global.parameters]
+region = "us-east-1"
+[prod.deploy.parameters]
+stack_name = "claim-flow-prod"
+resolve_s3 = true
+capabilities = "CAPABILITY_IAM"
+confirm_changeset = true
+fail_on_empty_changeset = false
+parameter_overrides = "EnvironmentName=\"prod\""
+s3_prefix = "claim-flow-prod"
+profile = "claim-flow-prod"
+disable_rollback = true
+image_repositories = []
+
+[prod.global.parameters]
+region = "us-east-1"
