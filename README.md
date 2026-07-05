@@ -6,6 +6,8 @@ Claimants report a loss through a public First Notice of Loss (FNOL) wizard. Cla
 
 This project exists to demonstrate a production-shaped agentic AI system on AWS: real auth, real data modeling, real infrastructure-as-code, and an agent whose tool-calling behavior is explainable end to end.
 
+**Who this is for:** P&C carriers, MGAs, and insurtech teams who want to modernize claims triage with explainable agentic AI rather than opaque black-box scoring.
+
 ---
 
 ## Overview
@@ -14,6 +16,14 @@ This project exists to demonstrate a production-shaped agentic AI system on AWS:
 - **Claimants** submit a loss report through a fully public, unauthenticated 3-step intake wizard — no account required.
 - Every submitted claim is **auto-triaged** by server-side rules into one of three handling paths.
 - Adjusters can trigger a **Strands agent** (Bedrock-hosted Claude) to produce a structured recommendation: triage decision, risk assessment, next steps, and missing information.
+
+## Highlights
+
+- End-to-end AWS stack (Cognito, API Gateway, Lambda, DynamoDB, CloudFront + S3) with IaC via SAM.
+- Real agent built on Strands Agents SDK + Claude Sonnet in Amazon Bedrock, with tool-calling and prompt-as-control-flow.
+- Auto-triage rules at intake plus cached AI analyses on claim records.
+- Three environments (dev, QA, prod) each with separate auth and data stacks.
+- Frontend React/Vite SPA with public FNOL wizard and authenticated adjuster dashboard.
 
 ## Architecture
 
