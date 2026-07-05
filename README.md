@@ -40,7 +40,7 @@ This project exists to demonstrate a production-shaped agentic AI system on AWS:
 ```mermaid
 flowchart LR
     subgraph Public
-        C[Claimant] -->|3-step FNOL wizard| Intake[React SPA: /intake]
+        C[Claimant] -->|3-step FNOL wizard| Intake["React SPA: /intake"]
     end
     subgraph Authenticated
         A[Adjuster] -->|Cognito Hosted UI| App[React SPA]
@@ -50,7 +50,7 @@ flowchart LR
     App -->|Cognito-authorized requests| APIGW
 
     APIGW --> Lambda[FastAPI Lambda]
-    Lambda --> DDB[(DynamoDB\nsingle-table)]
+    Lambda --> DDB[("DynamoDB<br/>single-table")]
     Lambda -->|POST /agent/analyze/:id| Agent[Strands Agent]
     Agent --> Bedrock[(Amazon Bedrock\nClaude Sonnet)]
     Agent --> DDB
